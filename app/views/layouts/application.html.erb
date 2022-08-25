@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails Merdeka Project</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <% if @current_user %>
+    <ul>
+      <li><%= link_to "Beranda", "/" %></li>
+      <li><%= link_to "Tentang", "/about" %></li>
+      <li><%= link_to "Artikel", "/articles" %>
+        <ul>
+          <li><%= link_to "Artikel Baru", new_article_path %></li>
+          <li><%= link_to "Artikel Saya", "/users/#{@current_user.id}" %></li>
+        </ul>
+      </li>
+      <li><%= link_to "Pengguna", "/users" %></li>
+      <li><%= link_to "Kontak", "/contact" %></li>
+    </ul>
+
+    <ul>
+      <li>Pengguna: <%= link_to @current_user.name, "/profile" %></li>
+      <li><%= link_to "Logout", "/logout" %></li>
+    </ul>
+    <% else %>
+    <ul>
+      <li><%= link_to "Beranda", "/" %></li>
+      <li><%= link_to "Tentang", "/about" %></li>
+      <li><%= link_to "Artikel", "/articles" %>
+      <li><%= link_to "Kontak", "/contact" %></li>
+      <li><%= link_to "Signup", "/signup" %></li>
+      <li><%= link_to "Login", "/login" %></li>
+    </ul>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:just_signed_up] %>
+      <p class="welcome"><%= flash[:just_signed_up] %> <%= @current_user.name %>!</p>
+    <% end %>
+        
+    <%= yield %>
+  </body>
+</html>

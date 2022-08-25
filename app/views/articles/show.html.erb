@@ -1,0 +1,21 @@
+<h1><%= @article.title %></h1>
+<h3>Penulis: <%= link_to @user.name, "/users/#{@user.id}" %></h3>
+
+<% if @current_user && @current_user.id == @user.id %>
+    <ul>
+        <li><%= link_to "Edit", edit_article_path(@article) %></li>
+        <li><%= link_to "Delete", article_path(@article), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Apakah Anda yakin?"
+                    } %></li>
+
+    </ul>
+<% end %>
+
+<p><%= @article.content %></p>
+
+<h2><%= @article.comments.public_count %> Komentar</h2>
+<%= render @article.comments %>
+
+<h2>Tambah Komentar</h2>
+<%= render 'comments/form' %>

@@ -1,0 +1,11 @@
+<% unless comment.archived? %>
+    <p>
+        <strong><%= comment.commenter %></strong><br>
+        <%= comment.body %><br>
+        <%= link_to "Delete", [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Apakah Anda yakin?"
+                } %>
+    </p>
+    
+<% end %>

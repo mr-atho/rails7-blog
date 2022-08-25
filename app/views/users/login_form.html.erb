@@ -1,0 +1,21 @@
+<% if @error_message %>
+    <%= @error_message %>
+<% end %>
+
+<h1>Login</h1>
+
+<%= form_with model: @user do |form| %>
+    <div>
+        <%= form.label "Email" %><br>
+        <%= form.text_field :email, value: @email %><br>
+    </div>
+
+    <div>
+        <%= form.label "Password" %><br>
+        <%= form.password_field :password, value: @password %><br>
+    </div>
+
+    <div>
+        <%= form.submit "Login" %>
+    </div>
+<% end %>

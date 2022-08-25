@@ -1,0 +1,16 @@
+<h2>Artikel Pengguna <%= @user.name %></h2>
+
+<% if @current_user && @current_user.id == @user.id %>
+    <% @user.articles.each do |article| %>
+        <ul>
+            <li><%= link_to article.title, "/articles/#{article.id}" %> (<%= article.status %>)</li>
+        </ul>
+    <% end %>
+<% else %>
+    <% @user.articles_public.each do |article| %>
+        <ul>
+            <li><%= link_to article.title, "/articles/#{article.id}" %></li>
+        </ul>
+    <% end %>
+<% end %>
+

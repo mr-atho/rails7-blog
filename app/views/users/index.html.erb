@@ -1,0 +1,7 @@
+<h1>Pengguna</h1>
+
+<ul>
+<% @users.each do |user| %>
+    <li><img src="<%= "/user_images/#{user.image_name}" %>" height="40px"><%= link_to user.name, user %></li>
+<% end %>
+</ul>
