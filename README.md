@@ -16,6 +16,9 @@ Yand dibutuhkan untuk menjalankan aplikasi ini:
 * Database SQLite (Development) & PostgreSQL (Production)
 
 # VERSI
+v1.2.0 | 26 Agustus 2022
+- Feat: Enkripsi User Password
+
 v1.1.0 | 25 Agustus 2022
 - Feat: User
 - Feat: Login User
