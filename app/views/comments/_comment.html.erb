@@ -1,11 +1,13 @@
-<% unless comment.archived? %>
+<% unless comment.archived? %>   
     <p>
         <strong><%= comment.commenter %></strong><br>
         <%= comment.body %><br>
-        <%= link_to "Delete", [comment.article, comment], data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Apakah Anda yakin?"
-                } %>
+
+        <% if @current_user && @current_user.id == @user.id %>
+            <%= link_to "Delete", [comment.article, comment], data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Apakah Anda yakin?"
+                    } %>
+        <% end %> 
     </p>
-    
 <% end %>

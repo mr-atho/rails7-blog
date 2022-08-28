@@ -11,8 +11,4 @@ class Article < ApplicationRecord
     def user
         return User.find_by(id: self.user_id)
     end
-
-    def articles_owned
-        return Article.where(user_id: self.id)
-    end
 end

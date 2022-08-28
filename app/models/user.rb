@@ -9,6 +9,6 @@ class User < ApplicationRecord
     end
 
     def articles_public
-        return Article.where(user_id: self.id, status: "public")
+        return Article.where(user_id: self.id, status: "public").order(created_at: :desc)
     end
 end

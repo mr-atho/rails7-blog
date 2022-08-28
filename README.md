@@ -16,6 +16,10 @@ Yand dibutuhkan untuk menjalankan aplikasi ini:
 * Database SQLite (Development) & PostgreSQL (Production)
 
 # VERSI
+v1.3.1 | 28 Agustus 2022
+- Fix: Comments Delete privilage
+- Fix: Bugs
+
 v1.3.0 | 28 Agustus 2022
 - Feat: Text Editor
 - Feat: Profile user
