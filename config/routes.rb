@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'profile', action: :profile, controller: 'users'
+  get "users/:id/articles", to: "users#user_articles"
+
+  get "profile", to: "users#profile"
 
   resources :users
   

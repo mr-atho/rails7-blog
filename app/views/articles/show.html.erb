@@ -1,5 +1,5 @@
 <h1><%= @article.title %></h1>
-<h3>Penulis: <%= link_to @user.name, "/users/#{@user.id}" %></h3>
+<h3>Penulis: <%= link_to @user.name, "/users/#{@user.id}/articles" %></h3>
 
 <% if @current_user && @current_user.id == @user.id %>
     <ul>

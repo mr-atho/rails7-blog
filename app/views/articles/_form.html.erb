@@ -8,9 +8,9 @@
 
     </div>
 
-    <div>
+    <div class="trix-content">
         <%= form.label "Isi" %><br>
-        <%= form.text_area :content %><br>
+        <%= form.rich_text_area :content %><br>
         <% @article.errors.full_messages_for(:content).each do |message| %>
             <div><%= message %></div>
         <% end %>

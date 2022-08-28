@@ -1,4 +1,19 @@
-<h2>Artikel Pengguna <%= @user.name %></h2>
+<h1>Pengguna</h1>
+
+<h2><strong><%= @user.name %></strong></h2>
+<p><%= @user.email %></p>
+
+<% if @user.id == @current_user.id %>
+    <ul>
+        <li><%= link_to "Edit", edit_user_path(@user) %></li>
+        <li><%= link_to "Delete", user_path(@user), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Apakah Anda yakin?"
+                    } %></li>
+    </ul>
+<% end %>
+
+<h2>Artikel Pengguna</h2>
 
 <% if @current_user && @current_user.id == @user.id %>
     <% @user.articles.each do |article| %>
@@ -13,4 +28,3 @@
         </ul>
     <% end %>
 <% end %>
-

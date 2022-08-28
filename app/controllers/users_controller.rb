@@ -86,6 +86,10 @@ class UsersController < ApplicationController
     redirect_to "/login"
   end
 
+  def user_articles
+    @user = User.find(params[:id])
+  end
+
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "Unauthorized access"

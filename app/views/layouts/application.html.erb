@@ -19,7 +19,7 @@
       <li><%= link_to "Artikel", "/articles" %>
         <ul>
           <li><%= link_to "Artikel Baru", new_article_path %></li>
-          <li><%= link_to "Artikel Saya", "/users/#{@current_user.id}" %></li>
+          <li><%= link_to "Artikel Saya", "/users/#{@current_user.id}/articles" %></li>
         </ul>
       </li>
       <li><%= link_to "Pengguna", "/users" %></li>
